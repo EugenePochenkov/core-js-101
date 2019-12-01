@@ -42,9 +42,7 @@ class Rectangle {
  *    [1,2,3]   =>  '[1,2,3]'
  *    { width: 10, height : 20 } => '{"height":10,"width":20}'
  */
-function getJSON(/* obj */) {
-  throw new Error('Not implemented');
-}
+const getJSON = (obj) => JSON.stringify(obj);
 
 
 /**
