@@ -1,6 +1,6 @@
 /* ************************************************************************************************
  *                                                                                                *
- * Plese read the following tutorial before implementing tasks:                                   *
+ * Please read the following tutorial before implementing tasks:                                   *
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise       *
  *                                                                                                *
  ************************************************************************************************ */
@@ -94,8 +94,22 @@ const getFastestPromise = (array) => Promise.race(array);
  *    });
  *
  */
-function chainPromises(/* array, action */) {
-  throw new Error('Not implemented');
+async function chainPromises(array, action) {
+  const res = array.reduce(async (acc, el) => {
+    let accRes;
+    let elRes;
+
+    try {
+      accRes = await acc;
+      elRes = await el;
+    } catch (e) {
+      console.log(e.message);
+    }
+
+    return action(accRes, elRes);
+  });
+
+  return res;
 }
 
 module.exports = {
