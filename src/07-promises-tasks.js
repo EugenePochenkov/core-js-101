@@ -103,7 +103,7 @@ async function chainPromises(array, action) {
       accRes = await acc;
       elRes = await el;
     } catch (e) {
-      console.log(e.message);
+      // console.log(e.message);
     }
 
     return action(accRes, elRes);

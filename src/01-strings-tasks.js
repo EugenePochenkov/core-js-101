@@ -231,7 +231,7 @@ const isString = (value) => {
 /**
  * Returns playid card id.
  *
- * Playing cards inittial deck inclides the cards in the following order:
+ * Playing cards initial deck includes the cards in the following order:
  *
  *  'A♣','2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','Q♣','K♣',
  *  'A♦','2♦','3♦','4♦','5♦','6♦','7♦','8♦','9♦','10♦','J♦','Q♦','K♦',
@@ -250,10 +250,12 @@ const isString = (value) => {
  *   '3♣' => 2
  *     ...
  *   'Q♠' => 50
- *   'K♠' => 51
+ *   'K♠' => 5
  */
-function getCardId(/* value */) {
-  throw new Error('Not implemented');
+function getCardId(value) {
+  const cardsArr = 'A♣,2♣,3♣,4♣,5♣,6♣,7♣,8♣,9♣,10♣,J♣,Q♣,K♣,A♦,2♦,3♦,4♦,5♦,6♦,7♦,8♦,9♦,10♦,J♦,Q♦,K♦,A♥,2♥,3♥,4♥,5♥,6♥,7♥,8♥,9♥,10♥,J♥,Q♥,K♥,A♠,2♠,3♠,4♠,5♠,6♠,7♠,8♠,9♠,10♠,J♠,Q♠,K♠'.split(',');
+
+  return cardsArr.indexOf(value);
 }
 
 
