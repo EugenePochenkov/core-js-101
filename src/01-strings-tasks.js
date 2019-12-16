@@ -182,10 +182,16 @@ const extractEmails = (str) => str.split(';');
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(/* width, height */) {
-  throw new Error('Not implemented');
-}
+const getRectangleString = (width, height) => {
+  const horizontal = '─';
+  const vertical = '│';
 
+  const top = `┌${horizontal.repeat(width - 2)}┐\n`;
+  const mid = `${vertical}${' '.repeat(width - 2)}${vertical}\n`;
+  const bottom = `└${horizontal.repeat(width - 2)}┘\n`;
+
+  return `${top}${mid.repeat(height - 2)}${bottom}`;
+};
 
 /**
  * Encode specified string with ROT13 cipher
@@ -203,9 +209,13 @@ function getRectangleString(/* width, height */) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(/* str */) {
-  throw new Error('Not implemented');
-}
+const encodeToRot13 = (str) => {
+  const input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  const output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+  const index = (x) => input.indexOf(x);
+  const translate = (x) => (index(x) > -1 ? output[index(x)] : x);
+  return str.split('').map(translate).join('');
+};
 
 /**
  * Returns true if the value is string; otherwise false.

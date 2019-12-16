@@ -1,6 +1,6 @@
 /* *******************************************************************************************
  *                                                                                           *
- * Plese read the following tutorial before implementing tasks:                              *
+ * Please read the following tutorial before implementing tasks:                              *
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Numbers_and_dates           *
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number   *
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math     *
@@ -168,9 +168,7 @@ function getParallelipidedDiagonal(/* a, b, c */) {
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-function roundToPowerOfTen(/* num, pow */) {
-  throw new Error('Not implemented');
-}
+const roundToPowerOfTen = (num, pow) => Math.round(num / 10 ** pow) * (10 ** pow);
 
 /**
  * Returns true is the number is prime; otherwise false.
@@ -202,7 +200,7 @@ const isPrime = (n) => {
 };
 
 /**
- * Tries to convert value to number and returns it if conversion was successfull;
+ * Tries to convert value to number and returns it if conversion was successful;
  * otherwise returns default value passed as a second argument.
  *
  * @param {any} value
@@ -216,9 +214,7 @@ const isPrime = (n) => {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
-}
+const toNumber = (value, def) => +value || def;
 
 module.exports = {
   getRectangleArea,
