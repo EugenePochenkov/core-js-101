@@ -64,9 +64,7 @@ const getAverage = (value1, value2) => value1 / 2 + value2 / 2;
  *   (0,0) (1,0)    => 1
  *   (-5,0) (10,-10) => 18.027756377319946
  */
-function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
-}
+const getDistanceBetweenPoints = (x1, y1, x2, y2) => Math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2);
 
 /**
  * Returns a root of linear equation a*x + b = 0 given by coefficients a and b.
@@ -80,9 +78,7 @@ function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
  *   x + 8 = 0       => -8
  *   5*x = 0         => 0
  */
-function getLinearEquationRoot(/* a, b */) {
-  throw new Error('Not implemented');
-}
+const getLinearEquationRoot = (a, b) => (b ? -b / a : 0);
 
 
 /**
@@ -103,9 +99,8 @@ function getLinearEquationRoot(/* a, b */) {
  *   (0,1) (0,1)     => 0
  *   (0,1) (1,2)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
-}
+const getAngleBetweenVectors = (x1, y1, x2, y2) => Math.acos(x1 * x2 + y1 * y2);
+
 
 /**
  * Returns a last digit of a integer number.
@@ -147,9 +142,7 @@ const parseNumberFromString = (value) => +value;
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
-function getParallelipidedDiagonal(/* a, b, c */) {
-  throw new Error('Not implemented');
-}
+const getParallelipidedDiagonal = (a, b, c) => Math.sqrt(a * a + b * b + c * c);
 
 /**
  * Returns the number rounded to specified power of 10.
