@@ -306,9 +306,24 @@ const getDigitalRoot = (num) => `${num}`
  *   '{)' = false
  *   '{[(<{[]}>)]}' = true
  */
-function isBracketsBalanced(/* str */) {
-  throw new Error('Not implemented');
-}
+const isBracketsBalanced = (str) => {
+  const hash = {
+    '(': ')',
+    '{': '}',
+    '[': ']',
+    '<': '>',
+  };
+
+  const stack = [];
+  let curr;
+
+  for (let i = 0; i < str.length; i += 1) {
+    curr = str[i];
+    if (hash[curr]) stack.push(curr);
+    else if (curr !== hash[stack.pop()]) return false;
+  }
+  return stack.length === 0;
+};
 
 
 /**
