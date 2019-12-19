@@ -33,9 +33,7 @@ const findElement = (arr, value) => arr.indexOf(value);
  *    2 => [ 1, 3 ]
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
-function generateOdds(/* len */) {
-  throw new Error('Not implemented');
-}
+const generateOdds = (len) => Array.from({ length: len }, (el, i) => (i * 2) + 1);
 
 
 /**
@@ -215,9 +213,15 @@ const toArrayOfSquares = (arr) => arr.map((el) => el ** 2);
  *   [ 0, 0, 0, 0, 0]         => [ 0, 0, 0, 0, 0]
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
-function getMovingSum(/* arr */) {
-  throw new Error('Not implemented');
-}
+const getMovingSum = (arr) => {
+  let acc = 0;
+
+  return arr.map((el) => {
+    acc += el;
+
+    return acc;
+  });
+};
 
 /**
  * Returns every second item from the specified array:
@@ -303,9 +307,11 @@ const getPositivesCount = (arr) => arr
  *   [ 'nine','eight','nine','eight'] => [ 'eight','eight','nine','nine']
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
-function sortDigitNamesByNumericOrder(/* arr */) {
-  throw new Error('Not implemented');
-}
+const sortDigitNamesByNumericOrder = (arr) => {
+  const numbersArr = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+
+  return (arr.length > 1) ? arr.sort((a, b) => numbersArr.indexOf(a) - numbersArr.indexOf(b)) : arr;
+};
 
 /**
  * Returns the sum of all items in the specified array of numbers
@@ -394,9 +400,15 @@ const toStringList = (arr) => arr.join(',');
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  *    ]
  */
-function sortCitiesArray(/* arr */) {
-  throw new Error('Not implemented');
-}
+const sortCitiesArray = (arr) => arr.sort((a, b) => {
+  if (a.country > b.country) return 1;
+  if (a.country < b.country) return -1;
+
+  if (a.city > b.city) return 1;
+  if (a.city < b.city) return -1;
+
+  return 0;
+});
 
 /**
  * Creates an indentity matrix of the specified size
@@ -433,9 +445,9 @@ function getIdentityMatrix(/* n */) {
  *     0, 100 => [ 0, 1, 2, ..., 100 ]
  *     3, 3   => [ 3 ]
  */
-function getIntervalArray(/* start, end */) {
-  throw new Error('Not implemented');
-}
+const getIntervalArray = (start, end) => Array
+  .from({ length: Math.abs(end - start) + 1 }, (el, i) => i + start);
+
 
 /**
  * Returns array containing only unique values from the specified array.
@@ -499,9 +511,8 @@ function group(/* array, keySelector, valueSelector */) {
  *   [[1, 2], [3, 4], [5, 6]], (x) => x     =>   [ 1, 2, 3, 4, 5, 6 ]
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
-function selectMany(/* arr, childrenSelector */) {
-  throw new Error('Not implemented');
-}
+const selectMany = (arr, childrenSelector) => arr
+  .map(childrenSelector).reduce((previous, current) => previous.concat(current), []);
 
 
 /**
@@ -516,9 +527,7 @@ function selectMany(/* arr, childrenSelector */) {
  *   ['one','two','three'], [2]       => 'three'  (arr[2])
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
-function getElementByIndexes(/* arr, indexes */) {
-  throw new Error('Not implemented');
-}
+const getElementByIndexes = (arr, indexes) => indexes.reduce((prev, current) => prev[current], arr);
 
 
 /**

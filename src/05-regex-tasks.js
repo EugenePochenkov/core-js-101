@@ -1,6 +1,6 @@
 /* *******************************************************************************************
  *                                                                                           *
- * Plese read the following tutorial before implementing tasks:                              *
+ * Please read the following tutorial before implementing tasks:                              *
  * https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions            *
  *                                                                                           *
  * You can use the next web site in order to check and build regexps:                        *
@@ -31,9 +31,7 @@
  *
  * @return {RegExp}
  */
-function getRegexForGuid() {
-  throw new Error('Not implemented');
-}
+const getRegexForGuid = () => /{[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}}/i;
 
 
 /**
@@ -53,9 +51,7 @@ function getRegexForGuid() {
  * @return {RegExp}
  *
  */
-function getRegexForPitSpot() {
-  throw new Error('Not implemented');
-}
+const getRegexForPitSpot = () => /[i|s|l|w]/;
 
 
 /**
@@ -78,10 +74,7 @@ function getRegexForPitSpot() {
  *   'PASSW0RD'.match(validator)  => false
  *   'Pa55'.match(validator) => false
  */
-function getPasswordValidator(/* minLength */) {
-  throw new Error('Not implemented');
-}
-
+const getPasswordValidator = (minLength) => new RegExp(`^(?=.{${minLength},}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[_ ]).*$`);
 
 module.exports = {
   getRegexForGuid,
