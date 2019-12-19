@@ -123,9 +123,16 @@ const isTriangle = (a, b, c) => Math.max(a, b, c) < (a + b + c) / 2;
  *   { top:20, left:20, width: 20, height: 20 }    =>  false
  *
  */
-function doRectanglesOverlap(/* rect1, rect2 */) {
-  throw new Error('Not implemented');
-}
+const doRectanglesOverlap = (rect1, rect2) => {
+  const {
+    top, left, width, height,
+  } = rect1;
+
+  const maxTop = top + height;
+  const maxLeft = left + width;
+
+  return !!((maxLeft > rect2.left && maxTop > rect2.top));
+};
 
 
 /**
@@ -154,8 +161,17 @@ function doRectanglesOverlap(/* rect1, rect2 */) {
  *   { center: { x:0, y:0 }, radius:10 },  { x:10, y:10 }   => false
  *
  */
-function isInsideCircle(/* circle, point */) {
-  throw new Error('Not implemented');
+function isInsideCircle(circle, point) {
+  const { x, y } = circle.center;
+
+  let { radius } = circle;
+  radius *= radius;
+
+  const pointX = point.x;
+  const pointXY = point.y;
+  const distance = (pointX - x) * (pointX - x) + (pointXY - y) * (pointXY - y);
+
+  return (distance < radius);
 }
 
 
